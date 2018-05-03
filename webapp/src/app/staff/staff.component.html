@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <form (click)="onSubmit()">
+        <div class="form-group">
+          <input type="text" name="firstName" placeholder="First name" [(ngModel)]="firstName" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="lastName" placeholder="Last name" [(ngModel)]="lastName" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="street" placeholder="Street" [(ngModel)]="street" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="number" name="zip" placeholder="Zip" [(ngModel)]="zip" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="city" placeholder="City" [(ngModel)]="city" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="gender" placeholder="Gender" [(ngModel)]="gender" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="date" name="dateOfBirth" placeholder="Date of birth" [(ngModel)]="dateOfBirth" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="telephoneNumber" placeholder="Telephone number" [(ngModel)]="telephoneNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="insuranceNumber" placeholder="Insurance number" [(ngModel)]="insuranceNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="position" placeholder="Position" [(ngModel)]="position" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="number" name="currentSalary" placeholder="Current salary" [(ngModel)]="currentSalary" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="whenPaid" placeholder="When paid" [(ngModel)]="whenPaid" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="number" name="hoursPerWeek" placeholder="Hours per week" [(ngModel)]="hoursPerWeek" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="permanentOrTemporary" placeholder="Permanent or temporary" [(ngModel)]="permanentOrTemporary" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="salaryScale" placeholder="Salary ccale" [(ngModel)]="salaryScale" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Create staff</button>
+      </form>
+    </div>
+  </div>
+</div>
