@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <form (click)="onSubmit()">
+          <div class="form-group">
+            <input type="text" name="patientnumber" placeholder="Patient Number" [(ngModel)]="patientnumber" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="firstname" placeholder="First name" [(ngModel)]="firstname" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="lastname" placeholder="Last name" [(ngModel)]="lastname" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="street" placeholder="Street" [(ngModel)]="street" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="number" name="zip" placeholder="Zip" [(ngModel)]="zip" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="city" placeholder="City" [(ngModel)]="city" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="date" name="dateOfBirth" placeholder="Date of birth" [(ngModel)]="dateOfBirth" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="telephoneNumber" placeholder="Telephone number" [(ngModel)]="telephoneNumber" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="gender" placeholder="Gender" [(ngModel)]="gender" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="maritalstatus" placeholder="Marital Status" [(ngModel)]="maritalstatus" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="date" name="dateregistrered" placeholder="Date Registrered" [(ngModel)]="dateregistrered" class="form-control">
+          </div>
+          <p>Local doctor for patient</p>
+          <div class="form-group">
+            <input type="text" name="fullnamelocaldoctor" placeholder="Name of local doctor" [(ngModel)]="fullnamelocaldoctor" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="clinicnumber" placeholder="Clinic's number" [(ngModel)]="clinicnumber" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="streetlocaldoctor" placeholder="Street" [(ngModel)]="streetlocaldoctor" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="ziplocaldoctor" placeholder="Zip" [(ngModel)]="ziplocaldoctor" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="citylocaldoctor" placeholder="City" [(ngModel)]="citylocaldoctor" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="phonenumber" placeholder="Phonenumber" [(ngModel)]="phonenumber" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Submit Patient</button>
+        </form>
+      </div>
+    </div>
+  </div>
