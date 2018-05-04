@@ -93,18 +93,6 @@ export class StaffComponent implements OnInit {
     };
 
     this.db.collection("Staff").doc(this.randomStaffNumber()).set(docData);
-
-    // this.db.collection('Staff').doc(this.randomStaffNumber()).set(
-    //   {
-    //     "FirstName": this.firstName,
-    //     "LastName": this.lastName,
-    //     "Address": {
-    //       "Street": this.street,
-    //       "Zip": this.zip,
-    //       "City": this.city
-    //     }
-    //   }
-    // );
   }
 
   ngOnInit() {
