@@ -21,6 +21,16 @@ export class GetstaffinwardComponent implements OnInit {
     db.firestore.settings({ timestampsInSnapshots: true});
 
     db.collection('Staff', ref => ref.where('AllocatedInWard', '==', 'Ward/1'));
+    var staffRef = db.collection('Staff');
+    var query = staffRef.where('capital', '==', true).get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+      });
+    })
+    .catch(err => {
+      console.log('Error getting documents', err);
+    });
   }
 
   ngOnInit() {
