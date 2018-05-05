@@ -10,15 +10,24 @@ import { Observable } from 'rxjs/Observable';
 })
 export class InpatientsComponent implements OnInit {
 
+  Patients;
   dateplacedonlist: Date;
   expectedstay: number;
   dateplacedinward: Date;
   dateleave: Date;
   actualleave: Date;
   bednumber: number;
-  
-  constructor() { }
 
+  inpatient: AngularFirestoreCollection<any[]>;
+  inpatients: Observable<any[]>;
+
+  constructor(public db: AngularFirestore) { 
+    db.firestore.settings({ timestampsInSnapshots: true});
+  }
+
+  getFromPatients(){
+   
+  }
   ngOnInit() {
   }
 
