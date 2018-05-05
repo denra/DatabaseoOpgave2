@@ -3,8 +3,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
-interface Staff{
-  
+interface Staff {
+  firstName: string;
+  lastName: string;
+  AllocatedInWard: string;
 }
 
 @Component({
@@ -13,27 +15,29 @@ interface Staff{
   styleUrls: ['./getstaffinward.component.css']
 })
 export class GetstaffinwardComponent implements OnInit {
-  Staff;
-  private staff: AngularFirestoreCollection<Staff>;
-  staffs: Observable<any[]>;
 
-  constructor(public db: AngularFirestore) { 
+  private staff: AngularFirestoreCollection<Staff>;
+  staffs: Observable<Staff[]>;
+
+  constructor(public db: AngularFirestore) {
     db.firestore.settings({ timestampsInSnapshots: true});
 
-    db.collection('Staff', ref => ref.where('AllocatedInWard', '==', 'Ward/1'));
-    var staffRef = db.collection('Staff');
-    var query = staffRef.where('capital', '==', true).get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        console.log(doc.id, '=>', doc.data());
-      });
-    })
-    .catch(err => {
-      console.log('Error getting documents', err);
-    });
+    // db.collection('Staff', ref => ref.where('AllocatedInWard', '==', 'Ward/1'));
+    // var staffRef = db.collection('Staff');
+    // var query = staffRef.where('capital', '==', true).get()
+    // .then(snapshot => {
+    //   snapshot.forEach(doc => {
+    //     console.log(doc.id, '=>', doc.data());
+    //   });
+    // })
+    // .catch(err => {
+    //   console.log('Error getting documents', err);
+    // });
   }
 
   ngOnInit() {
+    this.staff = this.db.collection('Staff');
+    this.staffs = this.staff.valueChanges();
   }
 
 }
