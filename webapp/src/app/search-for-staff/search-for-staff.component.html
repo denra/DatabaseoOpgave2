@@ -1,3 +1,196 @@
-<p>
-  search-for-staff works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <input placeholder="Search for qualifications" class="form-control" [(ngModel)]="qualifications">
+      </div>
+      <button type="button" class="btn btn-success" (click)="seachQualifications()">Search</button>
+      <div style="border-top: solid 5px green"></div>
+      <div *ngFor="let staff of staffs | async">
+        <p>
+          <strong>Staff number: </strong>
+          {{ staff.StaffNumber }}
+        </p>
+        <p>
+          <strong>First name: </strong>
+          {{ staff.FirstName }}
+        </p>
+        <p>
+          <strong>Last name: </strong>
+          {{ staff.LastName }}
+        </p>
+        <p>
+          <strong>Address: </strong>
+          {{ staff.Address.Street }} {{ staff.Address.Zip }} {{ staff.Address.City}}
+        </p>
+        <p>
+          <strong>Gender: </strong>
+          {{ staff.Gender }}
+        </p>
+        <p>
+          <strong>Date of birth: </strong>
+          {{ staff.DateOfBirth }}
+        </p>
+        <p>
+          <strong>Telephone Number: </strong>
+          {{staff.TelephoneNumber}}
+        </p>
+        <p>
+          <strong>Insurance Number: </strong>
+          {{staff.InsuranceNumber}}
+        </p>
+        <p>
+          <strong>Position: </strong>
+          {{staff.Position}}
+        </p>
+        <p>
+          <strong>Current Salary: </strong>
+          {{staff.CurrentSalary}}
+        </p>
+        <p>
+          <strong>When Paid: </strong>
+          {{staff.WhenPaid}}
+        </p>
+        <p>
+          <strong>Hours Per Week: </strong>
+          {{staff.HoursPerWeek}}
+        </p>
+        <p>
+          <strong>Permanent Or Temporary: </strong>
+          {{staff.PermanentOrTemporary}}
+        </p>
+        <p>
+          <strong>Salary Scale: </strong>
+          {{staff.SalaryScale}}
+        </p>
+        <strong>Qualifications</strong>
+        <p>
+          <strong>Date: </strong>
+          {{staff.Qualifications.Date}}
+        </p>
+        <p>
+          <strong>Institution: </strong>
+          {{staff.Qualifications.Institution}}
+        </p>
+        <p>
+          <strong>Type: </strong>
+          {{staff.Qualifications.Type}}
+        </p>
+        <strong>Work Experience</strong>
+        <p>
+          <strong>Start Date: </strong>
+          {{staff.WorkExperience.StartDate}}
+        </p>
+        <p>
+          <strong>Finish Date: </strong>
+          {{staff.WorkExperience.FinishDate}}
+        </p>
+        <p>
+          <strong>Position: </strong>
+          {{staff.WorkExperience.Position}}
+        </p>
+        <p>
+          <strong>Organization: </strong>
+          {{staff.WorkExperience.Organization}}
+        </p>
+        <div style="border-top: solid 5px green"></div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <input placeholder="Search for work experience" class="form-control" [(ngModel)]="workexperience">
+      </div>
+      <button type="button" class="btn btn-success" (click)="seachWorkexperince()">Search</button>
+      <div style="border-top: solid 5px green"></div>
+      <div *ngFor="let staff of theStaff | async">
+        <p>
+          <strong>Staff number: </strong>
+          {{ staff.StaffNumber }}
+        </p>
+        <p>
+          <strong>First name: </strong>
+          {{ staff.FirstName }}
+        </p>
+        <p>
+          <strong>Last name: </strong>
+          {{ staff.LastName }}
+        </p>
+        <p>
+          <strong>Address: </strong>
+          {{ staff.Address.Street }} {{ staff.Address.Zip }} {{ staff.Address.City}}
+        </p>
+        <p>
+          <strong>Gender: </strong>
+          {{ staff.Gender }}
+        </p>
+        <p>
+          <strong>Date of birth: </strong>
+          {{ staff.DateOfBirth }}
+        </p>
+        <p>
+          <strong>Telephone Number: </strong>
+          {{staff.TelephoneNumber}}
+        </p>
+        <p>
+          <strong>Insurance Number: </strong>
+          {{staff.InsuranceNumber}}
+        </p>
+        <p>
+          <strong>Position: </strong>
+          {{staff.Position}}
+        </p>
+        <p>
+          <strong>Current Salary: </strong>
+          {{staff.CurrentSalary}}
+        </p>
+        <p>
+          <strong>When Paid: </strong>
+          {{staff.WhenPaid}}
+        </p>
+        <p>
+          <strong>Hours Per Week: </strong>
+          {{staff.HoursPerWeek}}
+        </p>
+        <p>
+          <strong>Permanent Or Temporary: </strong>
+          {{staff.PermanentOrTemporary}}
+        </p>
+        <p>
+          <strong>Salary Scale: </strong>
+          {{staff.SalaryScale}}
+        </p>
+        <strong>Qualifications</strong>
+        <p>
+          <strong>Date: </strong>
+          {{staff.Qualifications.Date}}
+        </p>
+        <p>
+          <strong>Institution: </strong>
+          {{staff.Qualifications.Institution}}
+        </p>
+        <p>
+          <strong>Type: </strong>
+          {{staff.Qualifications.Type}}
+        </p>
+        <strong>Work Experience</strong>
+        <p>
+          <strong>Start Date: </strong>
+          {{staff.WorkExperience.StartDate}}
+        </p>
+        <p>
+          <strong>Finish Date: </strong>
+          {{staff.WorkExperience.FinishDate}}
+        </p>
+        <p>
+          <strong>Position: </strong>
+          {{staff.WorkExperience.Position}}
+        </p>
+        <p>
+          <strong>Organization: </strong>
+          {{staff.WorkExperience.Organization}}
+        </p>
+        <div style="border-top: solid 5px green"></div>
+      </div>
+    </div>
+  </div>
+</div>

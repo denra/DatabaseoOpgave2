@@ -111,39 +111,39 @@
           {{staff.SalaryScale}}
         </p>
         <strong>Qualifications</strong>
-        <div *ngFor="let qualifications of staff.Qualifications" style="border-bottom: 1px dashed black">
+        <!-- <div *ngFor="let qualifications of staff.Qualifications" style="border-bottom: 1px dashed black"> -->
           <p>
             <strong>Date: </strong>
-            {{qualifications.Date}}
+            {{staff.Qualifications.Date}}
           </p>
           <p>
             <strong>Institution: </strong>
-            {{qualifications.Institution}}
+            {{staff.Qualifications.Institution}}
           </p>
           <p>
             <strong>Type: </strong>
-            {{qualifications.Type}}
+            {{staff.Qualifications.Type}}
           </p>
-        </div>
+        <!-- </div> -->
         <strong>Work Experience</strong>
-        <div *ngFor="let workExperience of staff.WorkExperience" style="border-bottom: 1px dashed black">
+        <!-- <div *ngFor="let workExperience of staff.WorkExperience" style="border-bottom: 1px dashed black"> -->
           <p>
             <strong>Start Date: </strong>
-            {{workExperience.StartDate}}
+            {{staff.WorkExperience.StartDate}}
           </p>
           <p>
             <strong>Finish Date: </strong>
-            {{workExperience.FinishDate}}
+            {{staff.WorkExperience.FinishDate}}
           </p>
           <p>
             <strong>Position: </strong>
-            {{workExperience.Position}}
+            {{staff.WorkExperience.Position}}
           </p>
           <p>
             <strong>Organization: </strong>
-            {{workExperience.Organization}}
+            {{staff.WorkExperience.Organization}}
           </p>
-        </div>
+        <!-- </div> -->
         <button type="button" class="btn btn-primary" (click)="onEdit(staff.StaffNumber, staff.FirstName, staff.LastName, staff.Address.Street, staff.Address.Zip, staff.Address.City, staff.Gender, staff.DateOfBirth, staff.TelephoneNumber, staff.InsuranceNumber, staff.Position, staff.CurrentSalary, staff.WhenPaid, staff.HoursPerWeek, staff.PermanentOrTemporary, staff.SalaryScale)">Edit</button>
         <div style="border-top: solid 5px green"></div>
       </div>
