@@ -27,6 +27,16 @@ export class GetUpdatePatientsComponent implements OnInit {
 
    }
 
+   update(){
+    var patientdata = this.db.collection('Patients').doc('6iExg');
+    return patientdata.update({
+      PhoneNumber:'25413678'
+    }).then(function(){
+      console.log('Document Updated');
+    }).catch(function(error){
+      console.error('Error in updating the document: ', error);
+    });
+  }
   ngOnInit() {
   }
 
