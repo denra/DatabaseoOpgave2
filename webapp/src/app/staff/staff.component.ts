@@ -69,6 +69,7 @@ export class StaffComponent implements OnInit {
       "HoursPerWeek": this.hoursPerWeek,
       "PermanentOrTemporary": this.permanentOrTemporary,
       "SalaryScale": this.salaryScale,
+      "AllocatedInWard": this.db.doc("Ward/1").ref,
       "Qualifications": [
         {
           "Date": "25-2-2018",
