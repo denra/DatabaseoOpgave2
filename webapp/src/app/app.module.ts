@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { StaffComponent } from './staff/staff.component';
 import { WardComponent } from './ward/ward.component';
 import { PatientsComponent } from './patients/patients.component';
+import { GetUpdatePatientsComponent } from './get-update-patients/get-update-patients.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StaffComponent,
     WardComponent,
-    PatientsComponent
+    PatientsComponent,
+    GetUpdatePatientsComponent
   ],
   imports: [
     BrowserModule,
