@@ -4,8 +4,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 
 interface Staff {
-  firstName: string;
-  lastName: string;
+  FirstName: string;
+  LastName: string;
   AllocatedInWard: string;
 }
 
