@@ -1,0 +1,11 @@
+<div>
+  <ul *ngFor= "let staff of staffs | async" >
+    <li>
+      <strong>First name:</strong>
+      {{staff.FirstName}}</li>
+      <li><strong>Last name:</strong>
+      {{staff.LastName}}</li>
+      <li><strong>Ward:</strong>
+      {{staff.AllocatedInWard}}</li>
+  </ul>
+</div>
