@@ -47,8 +47,9 @@
         <div class="form-group">
           <input type="text" name="salaryScale" placeholder="Salary ccale" [(ngModel)]="salaryScale" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Create staff</button>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate">Create staff</button>
       </form>
+      <button type="submit" (click)="onUpdate(this.id)" class="btn btn-success" *ngIf="isVisibleUpdate">Update staff</button>
     </div>
     <div class="col-6 offset-2">
       <div style="border-top: solid 5px green"></div>
@@ -143,6 +144,7 @@
             {{workExperience.Organization}}
           </p>
         </div>
+        <button type="button" class="btn btn-primary" (click)="onEdit(staff.StaffNumber, staff.FirstName, staff.LastName, staff.Address.Street, staff.Address.Zip, staff.Address.City, staff.Gender, staff.DateOfBirth, staff.TelephoneNumber, staff.InsuranceNumber, staff.Position, staff.CurrentSalary, staff.WhenPaid, staff.HoursPerWeek, staff.PermanentOrTemporary, staff.SalaryScale)">Edit</button>
         <div style="border-top: solid 5px green"></div>
       </div>
     </div>

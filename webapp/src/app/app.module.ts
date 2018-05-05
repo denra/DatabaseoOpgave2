@@ -12,7 +12,10 @@ import { StaffComponent } from './staff/staff.component';
 import { WardComponent } from './ward/ward.component';
 import { PatientsComponent } from './patients/patients.component';
 import { GetUpdatePatientsComponent } from './get-update-patients/get-update-patients.component';
+
 import { InpatientsComponent } from './inpatients/inpatients.component';
+import { SearchForStaffComponent } from './search-for-staff/search-for-staff.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { InpatientsComponent } from './inpatients/inpatients.component';
     WardComponent,
     PatientsComponent,
     GetUpdatePatientsComponent,
-    InpatientsComponent
+    InpatientsComponent,
+    SearchForStaffComponent
+
   ],
   imports: [
     BrowserModule,
