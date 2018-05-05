@@ -12,6 +12,7 @@ import { StaffComponent } from './staff/staff.component';
 import { WardComponent } from './ward/ward.component';
 import { PatientsComponent } from './patients/patients.component';
 import { GetUpdatePatientsComponent } from './get-update-patients/get-update-patients.component';
+import { InpatientsComponent } from './inpatients/inpatients.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GetUpdatePatientsComponent } from './get-update-patients/get-update-pat
     StaffComponent,
     WardComponent,
     PatientsComponent,
-    GetUpdatePatientsComponent
+    GetUpdatePatientsComponent,
+    InpatientsComponent
   ],
   imports: [
     BrowserModule,
