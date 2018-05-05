@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, snapshotChanges } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
@@ -26,13 +26,25 @@ export class StaffComponent implements OnInit {
   permanentOrTemporary: string;
   salaryScale: string;
 
-  staff: AngularFirestoreCollection<any[]>;
+  docID: string = this.randomStaffNumber();
+
+  staffCol: AngularFirestoreCollection<any>;
   staffs: Observable<any[]>;
 
-  constructor(public db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     db.firestore.settings({ timestampsInSnapshots: true });
-    this.staff = this.db.collection('Staff');
-    this.staffs = this.staff.valueChanges();
+
+    // this.docID = "Hey";
+
+    //   firebase.database().ref('/posts').on('value', function(snapshot) {
+    //     console.log(snapshotToArray(snapshot));
+    // });
+
+    // db.collection("Staff").ref.get().then(function (querySnapshot) {
+    //   querySnapshot.forEach(function (doc) {
+    //     console.log(doc.id);
+    //   });
+    // });    
   }
 
   randomStaffNumber() {
@@ -46,7 +58,8 @@ export class StaffComponent implements OnInit {
   }
 
   onSubmit() {
-    var docData = {
+    this.db.collection('Staff').doc(this.docID).set({
+      'StaffNumber': this.docID,
       'FirstName': this.firstName,
       "LastName": this.lastName,
       "Address": {
@@ -66,36 +79,36 @@ export class StaffComponent implements OnInit {
       "SalaryScale": this.salaryScale,
       "Qualifications": [
         {
-          "Date": new Date(2018, 2, 25),
+          "Date": "25-2-2018",
           "Institution": "UCN",
           "Type": "U"
         },
         {
-          "Date": new Date(2016, 6, 13),
+          "Date": "25-2-2016",
           "Institution": "BGJ",
           "Type": "U"
         },
       ],
       "WorkExperience": [
         {
-          "StartDate": new Date(2016, 2, 25),
-          "FinishDate": new Date(2018, 2, 25),
+          "StartDate": "25-2-2013",
+          "FinishDate": "25-2-2017",
           "Position": "Nurse",
           "Organization": "Aalborg Universitets Hospital"
         },
         {
-          "StartDate": new Date(2016, 2, 25),
-          "FinishDate": new Date(2018, 2, 25),
+          "StartDate": "25-2-2011",
+          "FinishDate": "25-2-2012",
           "Position": "Nurse",
           "Organization": "Aalborg Universitets Hospital"
         },
       ]
-    };
-
-    this.db.collection("Staff").doc(this.randomStaffNumber()).set(docData);
+    });
   }
 
   ngOnInit() {
+    this.staffCol = this.db.collection('Staff');
+    this.staffs = this.staffCol.valueChanges();
   }
 
 }

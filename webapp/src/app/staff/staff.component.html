@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-6">
+    <div class="col-4">
       <form (click)="onSubmit()">
         <div class="form-group">
           <input type="text" name="firstName" placeholder="First name" [(ngModel)]="firstName" class="form-control">
@@ -49,6 +49,102 @@
         </div>
         <button type="submit" class="btn btn-success">Create staff</button>
       </form>
+    </div>
+    <div class="col-6 offset-2">
+      <div style="border-top: solid 5px green"></div>
+      <div *ngFor="let staff of staffs | async">
+        <p>
+          <strong>Staff number: </strong>
+          {{ staff.StaffNumber }}
+        </p>
+        <p>
+          <strong>First name: </strong>
+          {{ staff.FirstName }}
+        </p>
+        <p>
+          <strong>Last name: </strong>
+          {{ staff.LastName }}
+        </p>
+        <p>
+          <strong>Address: </strong>
+          {{ staff.Address.Street }} {{ staff.Address.Zip }} {{ staff.Address.City}}
+        </p>
+        <p>
+          <strong>Gender: </strong>
+          {{ staff.Gender }}
+        </p>
+        <p>
+          <strong>Date of birth: </strong>
+          {{ staff.DateOfBirth }}
+        </p>
+        <p>
+          <strong>Telephone Number: </strong>
+          {{staff.TelephoneNumber}}
+        </p>
+        <p>
+          <strong>Insurance Number: </strong>
+          {{staff.InsuranceNumber}}
+        </p>
+        <p>
+          <strong>Position: </strong>
+          {{staff.Position}}
+        </p>
+        <p>
+          <strong>Current Salary: </strong>
+          {{staff.CurrentSalary}}
+        </p>
+        <p>
+          <strong>When Paid: </strong>
+          {{staff.WhenPaid}}
+        </p>
+        <p>
+          <strong>Hours Per Week: </strong>
+          {{staff.HoursPerWeek}}
+        </p>
+        <p>
+          <strong>Permanent Or Temporary: </strong>
+          {{staff.PermanentOrTemporary}}
+        </p>
+        <p>
+          <strong>Salary Scale: </strong>
+          {{staff.SalaryScale}}
+        </p>
+        <strong>Qualifications</strong>
+        <div *ngFor="let qualifications of staff.Qualifications" style="border-bottom: 1px dashed black">
+          <p>
+            <strong>Date: </strong>
+            {{qualifications.Date}}
+          </p>
+          <p>
+            <strong>Institution: </strong>
+            {{qualifications.Institution}}
+          </p>
+          <p>
+            <strong>Type: </strong>
+            {{qualifications.Type}}
+          </p>
+        </div>
+        <strong>Work Experience</strong>
+        <div *ngFor="let workExperience of staff.WorkExperience" style="border-bottom: 1px dashed black">
+          <p>
+            <strong>Start Date: </strong>
+            {{workExperience.StartDate}}
+          </p>
+          <p>
+            <strong>Finish Date: </strong>
+            {{workExperience.FinishDate}}
+          </p>
+          <p>
+            <strong>Position: </strong>
+            {{workExperience.Position}}
+          </p>
+          <p>
+            <strong>Organization: </strong>
+            {{workExperience.Organization}}
+          </p>
+        </div>
+        <div style="border-top: solid 5px green"></div>
+      </div>
     </div>
   </div>
 </div>
