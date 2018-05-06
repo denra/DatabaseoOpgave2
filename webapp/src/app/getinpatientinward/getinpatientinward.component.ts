@@ -32,8 +32,7 @@ export class GetinpatientinwardComponent implements OnInit {
       return ref.where('WardNumber', '==', '1')
     });
     this.inpatients = this.inpatient.valueChanges();
-    var docData = this.inpatient;
-    console.log(docData);
+
     // this.inpatient.ref.get().then(function(querySnapshot) {
     //   querySnapshot.forEach(function(doc) {
     //     console.log(doc.id, '=>', doc.data());
