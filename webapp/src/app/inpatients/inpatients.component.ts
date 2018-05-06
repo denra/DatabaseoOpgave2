@@ -17,6 +17,7 @@ interface Ward{
   styleUrls: ['./inpatients.component.css']
 })
 export class InpatientsComponent implements OnInit {
+  
   patient:string;
   ward:string;
   dateplacedonlist: Date;
@@ -55,7 +56,7 @@ export class InpatientsComponent implements OnInit {
   onSubmit3(){
     this.db.collection('Inpatients').doc(this.docid).set({
       'InpatientNumber': this.docid,
-      'PatientNumber': this.patient,
+      'Patient': this.patient,
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
       'ExpectedStay': this.expectedstay,
@@ -83,7 +84,7 @@ export class InpatientsComponent implements OnInit {
 
   onUpdate(id){
     this.inpatient.doc(id).update({
-      'PatientNumber': this.patient,
+      'Patient': this.patient,
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
       'ExpectedStay': this.expectedstay,

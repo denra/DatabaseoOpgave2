@@ -50,7 +50,7 @@
           <div *ngFor="let inpatient of inpatients | async">
             <p>
               <strong>Patient Number:</strong>
-              {{ inpatient.PatientNumber }}
+              {{ inpatient.Patient }}
             </p>
             <p>
               <strong>Ward Number:</strong>
@@ -80,7 +80,7 @@
               <strong>Bednumber:</strong>
               {{ inpatient.BedNumber }}
             </p>
-              <button type="button" class="btn btn-primary" (click)="onEdit(inpatient.InpatientNumber, inpatient.PatientNumber, inpatient.WardPlaced, inpatient.DatePlacedOnList, inpatient.ExpectedStay, inpatient.DatePlacedInWard, inpatient.DateLeave, inpatient.ActualLeave, inpatient.BedNumber)">Edit</button>
+              <button type="button" class="btn btn-primary" (click)="onEdit(inpatient.InpatientNumber, inpatient.Patient, inpatient.WardPlaced, inpatient.DatePlacedOnList, inpatient.ExpectedStay, inpatient.DatePlacedInWard, inpatient.DateLeave, inpatient.ActualLeave, inpatient.BedNumber)">Edit</button>
               <div style="border-top: solid 5px green"></div>
           </div>
         </div>
