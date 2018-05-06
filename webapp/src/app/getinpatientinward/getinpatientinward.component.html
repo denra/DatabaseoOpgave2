@@ -1,3 +1,46 @@
-<p>
-  getinpatientinward works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group">
+          <input type="number" placeholder="Search for patients in ward" class="form-control" [(ngModel)]="ward">
+        </div>
+        <button type="button" class="btn btn-success" (click)="seachPatientinWard()">Search</button>
+        <div style="border-top: solid 5px green"></div>
+        <div *ngFor="let inpatient of inpatients | async">
+          <p>
+            <strong>Patient Number: </strong>
+            {{ inpatient.Patient }}
+          </p>
+          <p>
+            <strong>Ward Placed in: </strong>
+            {{ inpatient.WardPlaced }}
+          </p>
+          <p>
+            <strong>Date Placed On List: </strong>
+            {{ inpatient.DatePlacedOnList }}
+          </p>
+          <p>
+            <strong>Expected Stay: </strong>
+            {{ inpatient.ExpectedStay }}
+          </p>
+          <p>
+            <strong>Date Placed In Ward: </strong>
+            {{ inpatient.DatePlacedInWard }}
+          </p>
+          <p>
+            <strong>Date Leave: </strong>
+            {{ inpatient.DateLeave }}
+          </p>
+          <p>
+            <strong>Actual Leave: </strong>
+            {{inpatient.ActualLeave}}
+          </p>
+          <p>
+            <strong>Bed Number: </strong>
+            {{inpatient.BedNumber}}
+          </p>
+          <div style="border-top: solid 5px green"></div>
+        </div>
+      </div>
+    </div>
+  </div>
