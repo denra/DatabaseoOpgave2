@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div style="border-top: solid 5px green"></div>
+    <div class="row">
+      <div class="col-4">        
+        <form (click)="onSubmit4()">
+          <div class="form-group">
+              <input type="number" name="drugNumber" placeholder="Drug Number" [(ngModel)]="drugNumber" class="form-control">
+          </div>
+          <div class="form-group">
+              <input type="text" name="drugName" placeholder="Drug name" [(ngModel)]="drugName" class="form-control">
+            </div>
+          <div class="form-group">
+            <input type="text" name="description" placeholder="Description" [(ngModel)]="description" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateMedication">Create medication</button>
+        </form>
+       
+      </div>
+      <div class="col-6 offset-2"> 
+        <p>Patients:</p>
+        <ul *ngFor= "let patient of Patients | async" >
+        <li>
+          {{patient.PatientNumber}}</li>
+        </ul>
+        <br/>
+        <br/>
+        <p>Medication:</p>
+          <ul *ngFor= "let drug of Drugs | async" >
+            <li>{{ drug.DrugNumber }}</li>
+            <li>{{ drug.DrugName }}</li>
+            <li>{{ drug.Description }}</li>
+          </ul>
+        <div style="border-top: solid 5px green">
+          <form (click)="onSubmit5()">
+                <div class="form-group">
+                    <div class="form-group">
+                        <input type="text" name="patient" placeholder="Patient number" [(ngModel)]="patient" class="form-control">
+                    </div>
+                    <input type="number" name="drugNumber" placeholder="Drug number" [(ngModel)]="drugNumber" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="drugName" placeholder="Drug name" [(ngModel)]="drugName" class="form-control">
+                  </div>
+                <div class="form-group">
+                  <input type="text" name="description" placeholder="Description" [(ngModel)]="description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="dosage" placeholder="Dosage" [(ngModel)]="dosage" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="methodOfAdmin" placeholder="Method of admin" [(ngModel)]="methodOfAdmin" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="unitsPerDay" placeholder="Units per day" [(ngModel)]="unitsPerDay" class="form-control">
+                </div>
+                <div class="form-group">
+                <p>Start date:</p>
+                    <input type="date" name="startDate" placeholder="Start date" [(ngModel)]="startDate" class="form-control">
+                </div>
+                <p>Finish date:</p>
+                <div class="form-group">
+                    <input type="date" name="finishDate" placeholder="Finish Date" [(ngModel)]="finishDate" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateMedication">Set patient medication</button>
+          </form>
+          <button type="submit" (click)="onUpdate3(this.id)" class="btn btn-success" *ngIf="isVisibleUpdateMedication">Update patient medication</button>
+        </div>
+        <div class="col-4">
+            <div style="border-top: solid 5px green">
+              <div *ngFor="let patientmedication of patientMedication | async">
+                <p>
+                  <strong>Patient Number:</strong>
+                  {{ patientmedication.Patient }}
+                </p>
+                <p>
+                  <strong>Drug Number:</strong>
+                  {{ patientmedication.DrugNumber }}
+                </p>
+                <p>
+                  <strong>Name of drug:</strong>
+                  {{ patientmedication.DrugName }}
+                </p>
+                <p>
+                  <strong>Description:</strong>
+                  {{ patientmedication.Description }}
+                </p>
+                <p>
+                  <strong>Method Of Admin:</strong>
+                  {{ patientmedication.MethodOfAdmin }}
+                </p>
+                <p>
+                  <strong>Dosage:</strong>
+                  {{ patientmedication.Dosage }}
+                </p>
+                <p>
+                  <strong>Units Per Day:</strong>
+                  {{ patientmedication.UnitsPerDay }}
+                </p>
+                <p>
+                  <strong>Start date:</strong>
+                  {{ patientmedication.StartDate }}
+                </p>
+                <p>
+                    <strong>Finish date:</strong>
+                    {{ patientmedication.FinishDate }}
+                  </p>
+                  <button type="button" class="btn btn-primary" (click)="onEdit(patientmedication.PatientMedication, patientmedication.Patient, patientmedication.DrugNumber, patientmedication.DrugName, patientmedication.Description, patientmedication.MethodOfAdmin, patientmedication.Dosage, patientmedication.UnitsPerDay, patientmedication.StartDate, patientmedication.FinishDate)">Edit</button>
+                  <div style="border-top: solid 5px green"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

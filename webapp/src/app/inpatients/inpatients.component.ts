@@ -17,14 +17,15 @@ interface Ward{
   styleUrls: ['./inpatients.component.css']
 })
 export class InpatientsComponent implements OnInit {
+  
   patient:string;
   ward:string;
   dateplacedonlist: Date;
   expectedstay: number;
-  dateplacedinward: Date;
+  dateplacedinward?: Date;
   dateleave: Date;
-  actualleave: Date;
-  bednumber: number;
+  actualleave?: Date;
+  bednumber?: number;
 
   inpatient: AngularFirestoreCollection<any[]>;
   inpatients: Observable<any[]>;
@@ -54,7 +55,8 @@ export class InpatientsComponent implements OnInit {
 
   onSubmit3(){
     this.db.collection('Inpatients').doc(this.docid).set({
-      'PatientNumber': this.patient,
+      'InpatientNumber': this.docid,
+      'Patient': this.patient,
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
       'ExpectedStay': this.expectedstay,
@@ -80,9 +82,9 @@ export class InpatientsComponent implements OnInit {
     this.isVisibleUpdatePatient = true;
   }
 
-  onUpdate(id){
+  onUpdate2(id){
     this.inpatient.doc(id).update({
-      'PatientNumber': this.patient,
+      'Patient': this.patient,
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
       'ExpectedStay': this.expectedstay,
