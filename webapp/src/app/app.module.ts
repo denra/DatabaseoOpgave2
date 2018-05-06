@@ -16,6 +16,7 @@ import { GetUpdatePatientsComponent } from './get-update-patients/get-update-pat
 import { InpatientsComponent } from './inpatients/inpatients.component';
 import { SearchForStaffComponent } from './search-for-staff/search-for-staff.component';
 import { GetstaffinwardComponent } from './getstaffinward/getstaffinward.component';
+import { CreateMaintainOutpatientsComponent } from './create-maintain-outpatients/create-maintain-outpatients.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { GetstaffinwardComponent } from './getstaffinward/getstaffinward.compone
     GetUpdatePatientsComponent,
     InpatientsComponent,
     SearchForStaffComponent,
-    GetstaffinwardComponent
+    GetstaffinwardComponent,
+    CreateMaintainOutpatientsComponent
 
   ],
   imports: [

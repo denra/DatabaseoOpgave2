@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div style="border-top: solid 5px green"></div>
+      <div *ngFor="let patient of patients | async">
+        <p>Patient Number: {{patient.PatientNumber}}</p>
+        <p>First name: {{patient.FirstName}}</p>
+        <p>Last name: {{patient.LastName}}</p>
+        <button type="button" (click)="addToOutpatients(patient.PatientNumber)" class="btn btn-success">Refer to outpatient clinic</button>
+        <button type="button" (click)="removeFromOutpatients(patient.PatientNumber)" class="btn btn-success">Remove from outpatient clinic</button>
+        <div style="border-top: solid 5px green"></div>
+      </div>
+    </div>
+  </div>
+</div>
