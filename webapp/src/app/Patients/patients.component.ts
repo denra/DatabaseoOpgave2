@@ -27,6 +27,7 @@ export class PatientsComponent implements OnInit {
   citylocaldoctor: string;
   phonenumber: string;
 
+  docid: string = this.randomPatientNumber();
   patient: AngularFirestoreCollection<any[]>;
   patients: Observable<any[]>;
 
@@ -48,6 +49,7 @@ export class PatientsComponent implements OnInit {
 
   onSubmit2(){
     var docData = {
+      'PatientNumber': this.docid,
       'FirstName': this.firstname,
       'LastName': this.lastname,
       'Address': {
@@ -92,7 +94,7 @@ export class PatientsComponent implements OnInit {
         },
       ]
     };
-    this.db.collection('Patients').doc(this.randomPatientNumber()).set(docData);
+    this.db.collection('Patients').doc(this.docid).set(docData);
   }
 
   ngOnInit() {
