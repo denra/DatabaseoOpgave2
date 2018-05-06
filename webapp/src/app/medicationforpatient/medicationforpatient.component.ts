@@ -30,17 +30,22 @@ export class MedicationforpatientComponent implements OnInit {
   startDate: Date;
   finishDate: Date;
   
+  id:string;
+
   docid: string = this.randomMedicationNumber();
+  docid2: string = this.randomMedicationNumber();
 
   isVisibleCreateMedication: boolean = true;
   isVisibleUpdateMedication: boolean = false;
 
   medicationCol: AngularFirestoreCollection<any[]>;
   medication: Observable<any[]>;
+  patientMedicationCol: AngularFirestoreCollection<any[]>;
+  patientMedication: Observable<any[]>;
   private patientsCol: AngularFirestoreCollection<Patients>;
   Patients: Observable<Patients[]>;
   private drugsCol: AngularFirestoreCollection<Drugs>;
-  drugs: Observable<Drugs[]>;
+  Drugs: Observable<Drugs[]>;
 
   constructor(public db: AngularFirestore) { 
     db.firestore.settings({ timestampsInSnapshots: true});
@@ -56,6 +61,22 @@ export class MedicationforpatientComponent implements OnInit {
     return text;
   }
 
+  onEdit(id, patient, drugNumber, drugName, description, dosage, methodOfAdmin, unitsPerDay, startDate, finishDate){
+    this.id = id;
+    this.patient = patient;
+    this.drugNumber = drugNumber;
+    this.drugName = drugName;
+    this.description = description;
+    this.dosage = dosage;
+    this.methodOfAdmin = methodOfAdmin;
+    this.unitsPerDay = unitsPerDay;
+    this.startDate = startDate;
+    this.finishDate = finishDate;
+
+    this.isVisibleCreateMedication = false;
+    this.isVisibleUpdateMedication = true;
+  }
+
   onSubmit4(){
     this.db.collection('Medication').doc(this.docid).set({
       'DrugNumber': this.drugNumber,
@@ -63,13 +84,31 @@ export class MedicationforpatientComponent implements OnInit {
       'DrugName': this.drugName
     })
   }
+
+  onSubmit5(){
+    this.db.collection('PatientMedication').doc(this.docid2).set({
+      'PatientMedication': this.docid2,
+      'DrugNumber': this.drugNumber,
+      'Description': this.description,
+      'DrugName': this.drugName,
+      'Patient': this.patient,
+      'Dosage': this.dosage,
+      'MethodOfAdmin': this.methodOfAdmin,
+      'UnitsPerDay': this.unitsPerDay,
+      'StartDate': this.startDate,
+      'FinishDate': this.finishDate
+    })
+  }
+
   ngOnInit() {
     this.medicationCol = this.db.collection('Medication');
     this.medication = this.medicationCol.valueChanges();
     this.patientsCol = this.db.collection('Patients');
     this.Patients = this.patientsCol.valueChanges();
     this.drugsCol = this.db.collection('Medication');
-    this.drugs = this.drugsCol.valueChanges();
+    this.Drugs = this.drugsCol.valueChanges();
+    this.patientMedicationCol = this.db.collection('PatientMedication');
+    this.patientMedication = this.patientMedicationCol.valueChanges();
   }
 
 }
