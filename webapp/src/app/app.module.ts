@@ -17,7 +17,6 @@ import { SearchForStaffComponent } from './search-for-staff/search-for-staff.com
 import { GetstaffinwardComponent } from './getstaffinward/getstaffinward.component';
 import { CreateMaintainOutpatientsComponent } from './create-maintain-outpatients/create-maintain-outpatients.component';
 import { GetinpatientinwardComponent } from './getinpatientinward/getinpatientinward.component';
-import { GetinpatientinwardComponent } from './getinpatientinward/getinpatientinward.component';
 
 
 @NgModule({
