@@ -53,34 +53,34 @@
               {{ inpatient.PatientNumber }}
             </p>
             <p>
-                <strong>Ward Number:</strong>
-                {{ inpatient.WardPlaced }}
-              </p>
-              <p>
-                <strong>Date placed on list:</strong>
-                {{ inpatient.DatePlacedOnList }}
-              </p>
-              <p>
-                <strong>Expected stay:</strong>
-                {{ inpatient.ExpectedStay }} days
-              </p>
-              <p>
-                  <strong>Date Placed In Ward:</strong>
-                  {{ inpatient.DatePlacedInWard }}
-                </p>
-              <p>
-                <strong>Date patient will leave:</strong>
-                {{ inpatient.DateLeave }}
-              </p>
-              <p>
-                <strong>Date patient left:</strong>
-                {{ inpatient.ActualLeave }}
-              </p>
-              <p>
-                <strong>Bednumber:</strong>
-                {{ inpatient.BedNumber }}
-              </p>
-              <button type="button" class="btn btn-primary" (click)="onEdit(inpatient.PatientNumber, inpatient.WardPlaced, inpatient.DatePlacedOnList, inpatient.ExpectedStay, inpatient.DatePlacedInWard, inpatient.DateLeave, inpatient.ActualLeave, inpatient.BedNumber)">Edit</button>
+              <strong>Ward Number:</strong>
+              {{ inpatient.WardPlaced }}
+            </p>
+            <p>
+              <strong>Date placed on list:</strong>
+              {{ inpatient.DatePlacedOnList }}
+            </p>
+            <p>
+              <strong>Expected stay:</strong>
+              {{ inpatient.ExpectedStay }} days
+            </p>
+            <p>
+              <strong>Date Placed In Ward:</strong>
+              {{ inpatient.DatePlacedInWard }}
+            </p>
+            <p>
+              <strong>Date patient will leave:</strong>
+              {{ inpatient.DateLeave }}
+            </p>
+            <p>
+              <strong>Date patient left:</strong>
+              {{ inpatient.ActualLeave }}
+            </p>
+            <p>
+              <strong>Bednumber:</strong>
+              {{ inpatient.BedNumber }}
+            </p>
+              <button type="button" class="btn btn-primary" (click)="onEdit(inpatient.InpatientNumber, inpatient.PatientNumber, inpatient.WardPlaced, inpatient.DatePlacedOnList, inpatient.ExpectedStay, inpatient.DatePlacedInWard, inpatient.DateLeave, inpatient.ActualLeave, inpatient.BedNumber)">Edit</button>
               <div style="border-top: solid 5px green"></div>
           </div>
         </div>

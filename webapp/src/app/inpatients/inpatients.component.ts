@@ -54,6 +54,7 @@ export class InpatientsComponent implements OnInit {
 
   onSubmit3(){
     this.db.collection('Inpatients').doc(this.docid).set({
+      'InpatientNumber': this.docid,
       'PatientNumber': this.patient,
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
