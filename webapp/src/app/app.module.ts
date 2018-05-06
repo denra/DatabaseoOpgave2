@@ -16,7 +16,11 @@ import { GetUpdatePatientsComponent } from './get-update-patients/get-update-pat
 import { InpatientsComponent } from './inpatients/inpatients.component';
 import { SearchForStaffComponent } from './search-for-staff/search-for-staff.component';
 import { GetstaffinwardComponent } from './getstaffinward/getstaffinward.component';
+<<<<<<< HEAD
+import { CreateMaintainOutpatientsComponent } from './create-maintain-outpatients/create-maintain-outpatients.component';
+=======
 import { GetinpatientinwardComponent } from './getinpatientinward/getinpatientinward.component';
+>>>>>>> 8a9d4284cfede88dd3e41532c59781970f1eae88
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { GetinpatientinwardComponent } from './getinpatientinward/getinpatientin
     InpatientsComponent,
     SearchForStaffComponent,
     GetstaffinwardComponent,
+<<<<<<< HEAD
+    CreateMaintainOutpatientsComponent
+=======
     GetinpatientinwardComponent
+>>>>>>> 8a9d4284cfede88dd3e41532c59781970f1eae88
 
   ],
   imports: [
