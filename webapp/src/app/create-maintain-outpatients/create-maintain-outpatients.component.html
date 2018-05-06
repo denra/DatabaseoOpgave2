@@ -12,6 +12,42 @@
       </div>
     </div>
     <div class="col-4">
+        <h2>Outpatients</h2>
+        <div *ngFor="let outpatient of outpatients | async">
+          {{ outpatient.DateTimeOfAppointmentToClinic }} {{ outpatient.OutPatientNumber }}
+          <button type="button" class="btn btn-success" (click)="getPatient(outpatient.OutPatientNumber)">Get patient details</button>
+        </div>
+        <div *ngFor="let patient of patients | async">
+          <div *ngIf="clicked">
+            <p>
+              First Name: {{patient.FirstName}}
+            </p>
+            <p>
+              Last Name: {{patient.LastName}}
+            </p>
+            <p>
+              Address: {{patient.Address.Street}} {{patient.Address.Zip}} {{patient.Address.City}}
+            </p>
+            <p>
+              Date of birth: {{patient.DateOfBirth}}
+            </p>
+            <p>
+              Gender: {{patient.Gender}}
+            </p>
+            <p>
+              Marital status: {{patient.MaritalStatus}}
+            </p>
+            <p>
+              Phone number: {{patient.PhoneNumber}}
+            </p>
+            <p>
+              Local doctor: {{patient.LocalDoctor.FullName}} {{patient.LocalDoctor.Address.Street}} {{patient.LocalDoctor.Address.Zip}}
+              {{patient.LocalDoctor.Address.City}} {{patient.LocalDoctor.PhoneNumber}} {{patient.LocalDoctor.ClinicNumber}}
+            </p>
+          </div>
+        </div>
+      </div>
+    <!-- <div class="col-4">
       <h2>Outpatients</h2>
       <div *ngFor="let combined of combinedList | async">
         <strong>{{combined.OutPatientNumber}} {{combined.DateTimeOfAppointmentToClinic}}</strong>
@@ -42,6 +78,6 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

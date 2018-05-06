@@ -22,6 +22,8 @@ export class CreateMaintainOutpatientsComponent implements OnInit {
 
   combinedList: Observable<any[]>;
 
+  clicked: boolean = false;
+
   constructor(private db: AngularFirestore) {
     db.firestore.settings({ timestampsInSnapshots: true });
   }
@@ -45,6 +47,11 @@ export class CreateMaintainOutpatientsComponent implements OnInit {
     this.db.collection("Outpatients").doc(id).delete();
   }
 
+  getPatient(id) {
+    this.patients = this.db.collection("Patients", ref => ref.where('PatientNumber', '==', id)).valueChanges();
+    this.clicked = true;
+  }
+
   ngOnInit() {
     this.patientCol = this.db.collection('Patients');
     this.patients = this.patientCol.valueChanges();
@@ -52,9 +59,9 @@ export class CreateMaintainOutpatientsComponent implements OnInit {
     this.outpatientCol = this.db.collection('Outpatients');
     this.outpatients = this.outpatientCol.valueChanges();
 
-    this.combinedList = combineLatest<any[]>(this.outpatients, this.patients).pipe(
-      map(arr => arr.reduce((acc, cur) => acc.concat(cur))),
-    )
+    // this.combinedList = combineLatest<any[]>(this.outpatients, this.patients).pipe(
+    //   map(arr => arr.reduce((acc, cur) => acc.concat(cur))),
+    // )
   }
 
 }
