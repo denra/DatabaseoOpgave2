@@ -18,6 +18,7 @@ import { GetstaffinwardComponent } from './getstaffinward/getstaffinward.compone
 import { CreateMaintainOutpatientsComponent } from './create-maintain-outpatients/create-maintain-outpatients.component';
 import { GetinpatientinwardComponent } from './getinpatientinward/getinpatientinward.component';
 import { PatientsOnWaitinglistComponent } from './patients-on-waitinglist/patients-on-waitinglist.component';
+import { MedicationforpatientComponent } from './medicationforpatient/medicationforpatient.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { PatientsOnWaitinglistComponent } from './patients-on-waitinglist/patien
     GetinpatientinwardComponent,
     GetinpatientinwardComponent,
     PatientsOnWaitinglistComponent,
+    MedicationforpatientComponent,
 
   ],
   imports: [
