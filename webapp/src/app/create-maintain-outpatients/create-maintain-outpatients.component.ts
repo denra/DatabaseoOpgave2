@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { combineLatest } from 'rxjs/observable/combineLatest';
+import { map } from 'rxjs/operators';
 
 import * as firebase from 'firebase/app';
 
@@ -15,13 +17,18 @@ export class CreateMaintainOutpatientsComponent implements OnInit {
   patientCol: AngularFirestoreCollection<any>;
   patients: Observable<any[]>;
 
+  outpatientCol: AngularFirestoreCollection<any>;
+  outpatients: Observable<any[]>;
+
+  combinedList: Observable<any[]>;
+
   constructor(private db: AngularFirestore) {
     db.firestore.settings({ timestampsInSnapshots: true });
   }
 
   addToOutpatients(id) {
     this.db.collection('Outpatients').doc(id).set({
-      'PatientNumber': id,
+      'OutPatientNumber': id,
       'DateTimeOfAppointmentToClinic': new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear()
     });
 
@@ -41,6 +48,13 @@ export class CreateMaintainOutpatientsComponent implements OnInit {
   ngOnInit() {
     this.patientCol = this.db.collection('Patients');
     this.patients = this.patientCol.valueChanges();
+
+    this.outpatientCol = this.db.collection('Outpatients');
+    this.outpatients = this.outpatientCol.valueChanges();
+
+    this.combinedList = combineLatest<any[]>(this.outpatients, this.patients).pipe(
+      map(arr => arr.reduce((acc, cur) => acc.concat(cur))),
+    )
   }
 
 }

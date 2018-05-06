@@ -11,5 +11,37 @@
         <div style="border-top: solid 5px green"></div>
       </div>
     </div>
+    <div class="col-4">
+      <h2>Outpatients</h2>
+      <div *ngFor="let combined of combinedList | async">
+        <strong>{{combined.OutPatientNumber}} {{combined.DateTimeOfAppointmentToClinic}}</strong>
+        <div *ngIf="combined.PatientNumber == combined.OutPatientNumber">
+          <p>
+            First Name: {{combined.FirstName}}
+          </p>
+          <p>
+            Last Name: {{combined.FirstName}}
+          </p>
+          <p>
+            Address: {{combined.Address.Street}} {{combined.Address.Zip}} {{combined.Address.City}}
+          </p>
+          <p>
+            Date of birth: {{combined.DateOfBirth}}
+          </p>
+          <p>
+            Gender: {{combined.Gender}}
+          </p>
+          <p>
+            Marital status: {{combined.MaritalStatus}}
+          </p>
+          <p>
+            Phone number: {{combined.PhoneNumber}}
+          </p>
+          <p>
+            Local doctor: {{combined.LocalDoctor.FullName}} {{combined.LocalDoctor.Address.Street}} {{combined.LocalDoctor.Address.Zip}} {{combined.LocalDoctor.Address.City}} {{combined.LocalDoctor.PhoneNumber}} {{combined.LocalDoctor.ClinicNumber}}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
