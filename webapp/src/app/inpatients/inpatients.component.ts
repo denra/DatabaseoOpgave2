@@ -82,7 +82,7 @@ export class InpatientsComponent implements OnInit {
     this.isVisibleUpdatePatient = true;
   }
 
-  onUpdate(id){
+  onUpdate2(id){
     this.inpatient.doc(id).update({
       'Patient': this.patient,
       'WardPlaced': this.ward,

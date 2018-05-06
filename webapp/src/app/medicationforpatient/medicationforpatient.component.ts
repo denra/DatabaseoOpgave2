@@ -100,6 +100,19 @@ export class MedicationforpatientComponent implements OnInit {
     })
   }
 
+  onUpdate3(id){
+    this.patientMedicationCol.doc(id).update({
+      'DrugNumber': this.drugNumber,
+      'Description': this.description,
+      'DrugName': this.drugName,
+      'Patient': this.patient,
+      'Dosage': this.dosage,
+      'MethodOfAdmin': this.methodOfAdmin,
+      'UnitsPerDay': this.unitsPerDay,
+      'StartDate': this.startDate,
+      'FinishDate': this.finishDate
+    });
+  }
   ngOnInit() {
     this.medicationCol = this.db.collection('Medication');
     this.medication = this.medicationCol.valueChanges();

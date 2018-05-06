@@ -63,8 +63,52 @@
                 </div>
                 <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateMedication">Set patient medication</button>
           </form>
-          <button type="submit" (click)="onUpdate(this.id)" class="btn btn-success" *ngIf="isVisibleUpdateMedication">Update patient medication</button>
-        </div> 
+          <button type="submit" (click)="onUpdate3(this.id)" class="btn btn-success" *ngIf="isVisibleUpdateMedication">Update patient medication</button>
+        </div>
+        <div class="col-4">
+            <div style="border-top: solid 5px green">
+              <div *ngFor="let patientmedication of patientMedication | async">
+                <p>
+                  <strong>Patient Number:</strong>
+                  {{ patientmedication.Patient }}
+                </p>
+                <p>
+                  <strong>Drug Number:</strong>
+                  {{ patientmedication.DrugNumber }}
+                </p>
+                <p>
+                  <strong>Name of drug:</strong>
+                  {{ patientmedication.DrugName }}
+                </p>
+                <p>
+                  <strong>Description:</strong>
+                  {{ patientmedication.Description }}
+                </p>
+                <p>
+                  <strong>Method Of Admin:</strong>
+                  {{ patientmedication.MethodOfAdmin }}
+                </p>
+                <p>
+                  <strong>Dosage:</strong>
+                  {{ patientmedication.Dosage }}
+                </p>
+                <p>
+                  <strong>Units Per Day:</strong>
+                  {{ patientmedication.UnitsPerDay }}
+                </p>
+                <p>
+                  <strong>Start date:</strong>
+                  {{ patientmedication.StartDate }}
+                </p>
+                <p>
+                    <strong>Finish date:</strong>
+                    {{ patientmedication.FinishDate }}
+                  </p>
+                  <button type="button" class="btn btn-primary" (click)="onEdit(patientmedication.PatientMedication, patientmedication.Patient, patientmedication.DrugNumber, patientmedication.DrugName, patientmedication.Description, patientmedication.MethodOfAdmin, patientmedication.Dosage, patientmedication.UnitsPerDay, patientmedication.StartDate, patientmedication.FinishDate)">Edit</button>
+                  <div style="border-top: solid 5px green"></div>
+              </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>
