@@ -31,15 +31,17 @@ export class GetinpatientinwardComponent implements OnInit {
     this.inpatient = this.db.collection<Inpatients>('inpatients', ref => {
       return ref.where('WardNumber', '==', '1')
     });
-    this.inpatient.snapshotChanges
-    this.inpatient.ref.get().then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        console.log(doc.id, '=>', doc.data());
-      });
-    })
-    .catch(function(error) {
-      console.log('Error getting documents: ', error);
-    });
+    this.inpatients = this.inpatient.valueChanges();
+    var docData = this.inpatient;
+    console.log(docData);
+    // this.inpatient.ref.get().then(function(querySnapshot) {
+    //   querySnapshot.forEach(function(doc) {
+    //     console.log(doc.id, '=>', doc.data());
+    //   });
+    // })
+    // .catch(function(error) {
+    //   console.log('Error getting documents: ', error);
+    // });
   }
 
   ngOnInit() {
