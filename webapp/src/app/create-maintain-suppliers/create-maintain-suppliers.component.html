@@ -1,3 +1,62 @@
-<p>
-  create-maintain-suppliers works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <form (click)="onSubmit()">
+        <div class="form-group">
+          <input type="text" name="supplierName" placeholder="Supplier name" [(ngModel)]="supplierName" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="street" placeholder="Street" [(ngModel)]="street" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="zip" placeholder="Zip" [(ngModel)]="zip" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="city" placeholder="City" [(ngModel)]="city" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email" [(ngModel)]="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phoneNumber" placeholder="Phone number" [(ngModel)]="phoneNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="text" name="fax" placeholder="Fax" [(ngModel)]="fax" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate">Create supplier</button>
+      </form>
+      <button type="submit" (click)="onUpdate(this.supplierNumber)" class="btn btn-success" *ngIf="isVisibleUpdate">Update supplier</button>
+    </div>
+    <div class="col-6 offset-2">
+      <div style="border-top: solid 5px green"></div>
+      <div *ngFor="let supplier of suppliers | async">
+        <p>
+          <strong>Supplier number: </strong>
+          {{ supplier.SupplierNumber }}
+        </p>
+        <p>
+          <strong>Supplier name: </strong>
+          {{ supplier.SupplierName }}
+        </p>
+        <p>
+          <strong>Address: </strong>
+          {{ supplier.Address.Street }} {{ supplier.Address.Zip }} {{ supplier.Address.City }}
+        </p>
+        <p>
+          <strong>Email: </strong>
+          {{ supplier.Email }}
+        </p>
+        <p>
+          <strong>Phone number: </strong>
+          {{ supplier.PhoneNumber }}
+        </p>
+        <p>
+          <strong>Fax: </strong>
+          {{ supplier.Fax }}
+        </p>
+        <button type="button" class="btn btn-primary" (click)="onEdit(supplier.SupplierNumber, supplier.SupplierName, supplier.Address.Street, supplier.Address.Zip, supplier.Address.City, supplier.Email, supplier.PhoneNumber, supplier.Fax)">Edit</button>
+        <div style="border-top: solid 5px green"></div>
+      </div>
+    </div>
+  </div>
+</div>
