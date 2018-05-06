@@ -1,6 +1,7 @@
 <div class="container-fluid">
+  <div style="border-top: solid 5px green"></div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-4">
       <form (click)="onSubmit3()">
         <p>Patients:</p>
         <ul *ngFor= "let patient of Patients | async" >
@@ -40,8 +41,49 @@
         <div class="form-group">
           <input type="number" name="bednumber" placeholder="Bednumber" [(ngModel)]="bednumber" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Submit Patient</button>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreatePatient">Submit Patient</button>
       </form>
+      <button type="submit" (click)="onUpdate(this.id)" class="btn btn-success" *ngIf="isVisibleUpdatePatient">Update patient placement</button>
+    </div>
+    <div class="col-6 offset-2">
+        <div style="border-top: solid 5px green">
+          <div *ngFor="let inpatient of inpatients | async">
+            <p>
+              <strong>Patient Number:</strong>
+              {{ inpatient.PatientNumber }}
+            </p>
+            <p>
+                <strong>Ward Number:</strong>
+                {{ inpatient.WardPlaced }}
+              </p>
+              <p>
+                <strong>Date placed on list:</strong>
+                {{ inpatient.DatePlacedOnList }}
+              </p>
+              <p>
+                <strong>Expected stay:</strong>
+                {{ inpatient.ExpectedStay }} days
+              </p>
+              <p>
+                  <strong>Date Placed In Ward:</strong>
+                  {{ inpatient.DatePlacedInWard }}
+                </p>
+              <p>
+                <strong>Date patient will leave:</strong>
+                {{ inpatient.DateLeave }}
+              </p>
+              <p>
+                <strong>Date patient left:</strong>
+                {{ inpatient.ActualLeave }}
+              </p>
+              <p>
+                <strong>Bednumber:</strong>
+                {{ inpatient.BedNumber }}
+              </p>
+              <button type="button" class="btn btn-primary" (click)="onEdit(inpatient.patient, inpatient.ward, inpatient.dateplacedonlist, inpatient.expectedstay, inpatient.dateleave, inpatient.actualleave, inpatient.bednumber)">Edit</button>
+              <div style="border-top: solid 5px green"></div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

@@ -32,7 +32,11 @@ export class InpatientsComponent implements OnInit {
   Patients: Observable<Patients[]>;
   private Ward: AngularFirestoreCollection<Ward>;
   Wards: Observable<Ward[]>;
-  docid: string = this.randomInpatientNumber()
+
+  docid: string = this.randomInpatientNumber();
+  id: string;
+  isVisibleCreatePatient: boolean = true;
+  isVisibleUpdatePatient: boolean = false;
 
   constructor(public db: AngularFirestore) { 
     db.firestore.settings({ timestampsInSnapshots: true});
@@ -54,6 +58,35 @@ export class InpatientsComponent implements OnInit {
       'WardPlaced': this.ward,
       'DatePlacedOnList': this.dateplacedonlist,
       'ExpectedStay': this.expectedstay,
+      'DatePlacedInWard': this.dateplacedinward,
+      'DateLeave': this.dateleave,
+      'ActualLeave': this.actualleave,
+      'BedNumber': this.bednumber
+    });
+  }
+
+  onEdit(id, patient, ward, dateplacedonlist, expectedstay, dateplacedinward, dateleave, actualleave, bednumber){
+    this.id = id;
+    this.patient = patient;
+    this.ward = ward;
+    this.dateplacedonlist = dateplacedonlist;
+    this.expectedstay = expectedstay;
+    this.dateplacedinward = dateplacedinward;
+    this.dateleave = dateleave;
+    this.actualleave = actualleave;
+    this.bednumber = bednumber;
+
+    this.isVisibleCreatePatient = false;
+    this.isVisibleUpdatePatient = true;
+  }
+
+  onUpdate(id){
+    this.inpatient.doc(id).update({
+      'PatientNumber': this.patient,
+      'WardPlaced': this.ward,
+      'DatePlacedOnList': this.dateplacedonlist,
+      'ExpectedStay': this.expectedstay,
+      'DatePlacedInWard': this.dateplacedinward,
       'DateLeave': this.dateleave,
       'ActualLeave': this.actualleave,
       'BedNumber': this.bednumber
@@ -65,6 +98,8 @@ export class InpatientsComponent implements OnInit {
     this.Patients = this.patients.valueChanges();
     this.Ward = this.db.collection('Ward');
     this.Wards = this.Ward.valueChanges();
+    this.inpatient = this.db.collection('Inpatients');
+    this.inpatients = this.inpatient.valueChanges();
   }
 
 }
