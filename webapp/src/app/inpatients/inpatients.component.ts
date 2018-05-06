@@ -22,10 +22,10 @@ export class InpatientsComponent implements OnInit {
   ward:string;
   dateplacedonlist: Date;
   expectedstay: number;
-  dateplacedinward: Date;
+  dateplacedinward?: Date;
   dateleave: Date;
-  actualleave: Date;
-  bednumber: number;
+  actualleave?: Date;
+  bednumber?: number;
 
   inpatient: AngularFirestoreCollection<any[]>;
   inpatients: Observable<any[]>;
