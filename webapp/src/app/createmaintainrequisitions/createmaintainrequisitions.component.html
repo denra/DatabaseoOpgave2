@@ -1,3 +1,85 @@
-<p>
-  createmaintainrequisitions works!
-</p>
+<div class="container-fluid">
+    <div style="border-top: solid 5px green"></div>
+    <div class="row">
+      <div class="col-4">        
+        <!-- <p>Patients:</p>
+          <ul *ngFor= "let patient of Patients | async" >
+              <li>
+                {{patient.PatientNumber}}</li>
+          </ul>
+          <p>Wards:</p>
+          <ul *ngFor= "let ward of Wards | async" >
+              <li>
+                  {{ward.WardNumber}}</li>
+          </ul> -->
+        <form (click)="onSubmit6()">
+          <div class="form-group">
+              <input type="number" name="ward" placeholder="Ward number" [(ngModel)]="ward" class="form-control">
+          </div>
+          <div class="form-group">
+              <input type="text" name="wardName" placeholder="Ward name" [(ngModel)]="wardName" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="requsitionedBy" placeholder="Requsitioned By" [(ngModel)]="requsitionedBy" class="form-control">
+          </div>
+          <div class="form-group">
+              <p>Date of requisition:</p>
+            <input type="date" name="requsitionDate" placeholder="Requsition Date" [(ngModel)]="requsitionDate" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="receivedBy" placeholder="Received By" [(ngModel)]="receivedBy" class="form-control">
+          </div>
+          <div class="form-group">
+            <p>Date Received:</p>
+            <input type="date" name="dateReceived" placeholder="Date Received" [(ngModel)]="dateReceived" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="number" name="itemdrugnumber" placeholder="Item/Drug number" [(ngModel)]="itemdrugnumber" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateRequisition">Submit Requisition</button>
+        </form>
+        <button type="submit" (click)="onUpdate4(this.id)" class="btn btn-success" *ngIf="isVisibleUpdateRequisition">Update Requisition</button>
+      </div>
+      <div class="col-6 offset-2">
+          <div style="border-top: solid 5px green">
+            <div *ngFor="let requisition of requisitions | async">
+              <p>
+                <strong>Requsition Number:</strong>
+                {{ requisition.RequsitionNumber }}
+              </p>
+              <p>
+                <strong>Ward Number:</strong>
+                {{ requisition.WardNumber }}
+              </p>
+              <p>
+                <strong>Ward Name:</strong>
+                {{ requisition.WardName }}
+              </p>
+              <p>
+                <strong>Requsitioned By:</strong>
+                {{ requisition.RequsitionedBy }} days
+              </p>
+              <p>
+                <strong>Requsition Date:</strong>
+                {{ requisition.RequsitionDate }}
+              </p>
+              <p>
+                <strong>Received By:</strong>
+                {{ requisition.ReceivedBy }}
+              </p>
+              <p>
+                <strong>Date Received:</strong>
+                {{ requisition.DateReceived }}
+              </p>
+              <p>
+                <strong>Item/Drug Number:</strong>
+                {{ requisition.ItemDrugNumber }}
+              </p>
+                <button type="button" class="btn btn-primary" (click)="onEdit4(requisition.RequsitionNumber, requisition.WardNumber, requisition.WardName, requisition.RequsitionedBy, requisition.RequsitionDate, requisition.ReceivedBy, requisition.DateReceived, requisition.ItemDrugNumber)">Edit</button>
+                <div style="border-top: solid 5px green"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+  
