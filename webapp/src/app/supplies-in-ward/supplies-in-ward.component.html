@@ -1,3 +1,5 @@
-<p>
-  supplies-in-ward works!
-</p>
+<div *ngFor="let post of combinedList | async">
+
+    {{ post | json }}
+  
+  </div>
