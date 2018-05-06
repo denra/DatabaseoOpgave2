@@ -28,12 +28,6 @@ export class PatientsOnWaitinglistComponent implements OnInit {
   }
 
   getPatient(id) {
-    console.log(id);
-    // this.patientCol = this.db.collection('Patients', ref => ref.where('PatientNumber', '==', id));
-    // this.patients = this.patientCol.valueChanges();
-    // this.staffs = this.db.collection("Staff", ref => ref.where('Qualifications.Institution', '==', this.qualifications))
-    //   .valueChanges();
-
     this.patients = this.db.collection("Patients", ref => ref.where('PatientNumber', '==', id)).valueChanges();
     this.clicked = true;
   }
@@ -44,14 +38,6 @@ export class PatientsOnWaitinglistComponent implements OnInit {
 
     this.inpatientCol = this.db.collection('Inpatients', ref => ref.where('WardPlaced', '==', 1));
     this.inpatients = this.inpatientCol.valueChanges();
-
-    // this.combinedList = combineLatest<any[]>(this.inpatients, this.patients).pipe(
-    //   map(arr => arr.reduce((acc, cur) => acc.concat(cur))),
-    // )
-
-    // this.combinedList.subscribe(combined => {
-    //   this.test = combined;
-    // })
   }
 
 }
