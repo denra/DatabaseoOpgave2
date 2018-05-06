@@ -21,6 +21,7 @@ import { PatientsOnWaitinglistComponent } from './patients-on-waitinglist/patien
 import { MedicationforpatientComponent } from './medicationforpatient/medicationforpatient.component';
 import { GetpatientmedicationComponent } from './getpatientmedication/getpatientmedication.component';
 import { CreateMaintainSuppliersComponent } from './create-maintain-suppliers/create-maintain-suppliers.component';
+import { CreatemaintainrequisitionsComponent } from './createmaintainrequisitions/createmaintainrequisitions.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { CreateMaintainSuppliersComponent } from './create-maintain-suppliers/cr
     MedicationforpatientComponent,
     GetpatientmedicationComponent,
     CreateMaintainSuppliersComponent,
+    CreatemaintainrequisitionsComponent,
 
   ],
   imports: [
