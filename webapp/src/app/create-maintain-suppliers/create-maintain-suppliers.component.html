@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <form (click)="onSubmit()">
+      <form>
         <div class="form-group">
           <input type="text" name="supplierName" placeholder="Supplier name" [(ngModel)]="supplierName" class="form-control">
         </div>
@@ -23,7 +23,7 @@
         <div class="form-group">
           <input type="text" name="fax" placeholder="Fax" [(ngModel)]="fax" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate">Create supplier</button>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate" (click)="onSubmit()">Create supplier</button>
       </form>
       <button type="submit" (click)="onUpdate(this.supplierNumber)" class="btn btn-success" *ngIf="isVisibleUpdate">Update supplier</button>
     </div>

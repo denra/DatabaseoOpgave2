@@ -2,7 +2,7 @@
     <div style="border-top: solid 5px green"></div>
     <div class="row">
       <div class="col-4">        
-        <form (click)="onSubmit4()">
+        <form>
           <div class="form-group">
               <input type="number" name="drugNumber" placeholder="Drug Number" [(ngModel)]="drugNumber" class="form-control">
           </div>
@@ -12,7 +12,7 @@
           <div class="form-group">
             <input type="text" name="description" placeholder="Description" [(ngModel)]="description" class="form-control">
           </div>
-          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateMedication">Create medication</button>
+          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateMedication" (click)="onSubmit4()">Create medication</button>
         </form>
        
       </div>

@@ -28,8 +28,8 @@ export class CreatemaintainrequisitionsComponent implements OnInit {
   requisitionCol: AngularFirestoreCollection<any[]>;
   requisitions: Observable<any[]>;
 
-  constructor(public db: AngularFirestore) { 
-    db.firestore.settings({ timestampsInSnapshots: true});
+  constructor(public db: AngularFirestore) {
+    db.firestore.settings({ timestampsInSnapshots: true });
   }
 
   randomRequsitionNumber() {
@@ -42,7 +42,7 @@ export class CreatemaintainrequisitionsComponent implements OnInit {
     return text;
   }
 
-  onSubmit6(){
+  onSubmit6() {
     this.db.collection('Requisitions').doc(this.docid).set({
       'RequsitionNumber': this.docid,
       'WardNumber': this.ward,
@@ -55,7 +55,7 @@ export class CreatemaintainrequisitionsComponent implements OnInit {
     });
   }
 
-  onEdit4(id, ward, wardName, requsitionedBy, requsitionDate, receivedBy, dateReceived, itemdrugnumber){
+  onEdit4(id, ward, wardName, requsitionedBy, requsitionDate, receivedBy, dateReceived, itemdrugnumber) {
     this.id = id;
     this.ward = ward;
     this.wardName = wardName;
@@ -69,16 +69,17 @@ export class CreatemaintainrequisitionsComponent implements OnInit {
     this.isVisibleUpdateRequisition = true;
   }
 
-  onUpdate4(id){
-  this.requisitionCol.doc(id).update({
-    'WardNumber': this.ward,
-    'WardName': this.wardName,
-    'RequsitionedBy': this.requsitionedBy,
-    'RequsitionDate': this.requsitionDate,
-    'ReceivedBy': this.receivedBy,
-    'DateReceived': this.dateReceived,
-    'ItemDrugNumber': this.itemdrugnumber
-  })
+  onUpdate4(id) {
+    this.requisitionCol.doc(id).update({
+      'Requsition Number': id,
+      'WardNumber': this.ward,
+      'WardName': this.wardName,
+      'RequsitionedBy': this.requsitionedBy,
+      'RequsitionDate': this.requsitionDate,
+      'ReceivedBy': this.receivedBy,
+      'DateReceived': this.dateReceived,
+      'ItemDrugNumber': this.itemdrugnumber
+    })
   }
 
   ngOnInit() {

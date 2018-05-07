@@ -12,7 +12,7 @@
             <li>
                 {{ward.WardNumber}}</li>
         </ul>
-      <form (click)="onSubmit3()">
+      <form>
         <div class="form-group">
             <input type="text" name="patient" placeholder="Patients number" [(ngModel)]="patient" class="form-control">
         </div>
@@ -41,7 +41,7 @@
         <div class="form-group">
           <input type="number" name="bednumber" placeholder="Bednumber" [(ngModel)]="bednumber" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreatePatient">Submit Patient</button>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreatePatient" (click)="onSubmit3()">Submit Patient</button>
       </form>
       <button type="submit" (click)="onUpdate2(this.id)" class="btn btn-success" *ngIf="isVisibleUpdatePatient">Update patient placement</button>
     </div>

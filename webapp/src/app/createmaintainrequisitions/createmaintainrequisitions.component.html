@@ -12,7 +12,7 @@
               <li>
                   {{ward.WardNumber}}</li>
           </ul> -->
-        <form (click)="onSubmit6()">
+        <form>
           <div class="form-group">
               <input type="number" name="ward" placeholder="Ward number" [(ngModel)]="ward" class="form-control">
           </div>
@@ -36,7 +36,7 @@
           <div class="form-group">
             <input type="number" name="itemdrugnumber" placeholder="Item/Drug number" [(ngModel)]="itemdrugnumber" class="form-control">
           </div>
-          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateRequisition">Submit Requisition</button>
+          <button type="submit" class="btn btn-success" *ngIf="isVisibleCreateRequisition" (click)="onSubmit6()">Submit Requisition</button>
         </form>
         <button type="submit" (click)="onUpdate4(this.id)" class="btn btn-success" *ngIf="isVisibleUpdateRequisition">Update Requisition</button>
       </div>

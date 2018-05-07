@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <form (click)="onSubmit()">
+      <form>
         <div class="form-group">
           <input type="text" name="firstName" placeholder="First name" [(ngModel)]="firstName" class="form-control">
         </div>
@@ -47,7 +47,7 @@
         <div class="form-group">
           <input type="text" name="salaryScale" placeholder="Salary ccale" [(ngModel)]="salaryScale" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate">Create staff</button>
+        <button type="submit" class="btn btn-success" *ngIf="isVisibleCreate" (click)="onSubmit()">Create staff</button>
       </form>
       <button type="submit" (click)="onUpdate(this.id)" class="btn btn-success" *ngIf="isVisibleUpdate">Update staff</button>
     </div>

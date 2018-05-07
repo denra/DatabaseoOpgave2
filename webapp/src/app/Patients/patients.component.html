@@ -1,7 +1,7 @@
 <div class="container-fluid">
    <div class="row">
      <div class="col-6">
-       <form (click)="onSubmit2()">
+       <form>
          <div class="form-group">
            <input type="text" name="firstname" placeholder="First name" [(ngModel)]="firstname" class="form-control">
          </div>
@@ -51,7 +51,7 @@
          <div class="form-group">
            <input type="text" name="phonenumber" placeholder="Phonenumber" [(ngModel)]="phonenumber" class="form-control">
          </div>
-         <button type="submit" class="btn btn-success">Submit Patient</button>
+         <button type="submit" class="btn btn-success" (click)="onSubmit2()">Submit Patient</button>
        </form>
      </div>
    </div>
