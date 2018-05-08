@@ -152,32 +152,44 @@ export class StaffComponent implements OnInit {
       "HoursPerWeek": this.hoursPerWeek,
       "PermanentOrTemporary": this.permanentOrTemporary,
       "SalaryScale": this.salaryScale,
-      "Qualifications": [
-        {
-          "Date": "25-2-2018",
-          "Institution": "UCN",
-          "Type": "U"
-        },
-        {
-          "Date": "25-2-2016",
-          "Institution": "BGJ",
-          "Type": "U"
-        },
-      ],
-      "WorkExperience": [
+      "Qualifications": {
+        "Date": "25-2-2018",
+        "Institution": "UCN",
+        "Type": "U"
+      },
+      "WorkExperience":
         {
           "StartDate": "25-2-2013",
           "FinishDate": "25-2-2017",
           "Position": "Nurse",
           "Organization": "Aalborg Universitets Hospital"
-        },
-        {
-          "StartDate": "25-2-2011",
-          "FinishDate": "25-2-2012",
-          "Position": "Nurse",
-          "Organization": "Aalborg Universitets Hospital"
-        },
-      ]
+        }
+      // "Qualifications": [
+      //   {
+      //     "Date": "25-2-2018",
+      //     "Institution": "UCN",
+      //     "Type": "U"
+      //   },
+      //   {
+      //     "Date": "25-2-2016",
+      //     "Institution": "BGJ",
+      //     "Type": "U"
+      //   },
+      // ],
+      // "WorkExperience": [
+      //   {
+      //     "StartDate": "25-2-2013",
+      //     "FinishDate": "25-2-2017",
+      //     "Position": "Nurse",
+      //     "Organization": "Aalborg Universitets Hospital"
+      //   },
+      //   {
+      //     "StartDate": "25-2-2011",
+      //     "FinishDate": "25-2-2012",
+      //     "Position": "Nurse",
+      //     "Organization": "Aalborg Universitets Hospital"
+      //   },
+      // ]
     });
   }
 
